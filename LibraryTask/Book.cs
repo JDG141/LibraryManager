@@ -2,68 +2,38 @@
 
 public class Book
 {
-	// Private Properties
-	private string _title;
-	private string _author;
-	private int _id;
-	private int _year;
-	private int _pages;
-	private int _userId; // 0 if not checked out, otherwise user id of borrower
+    // Public Properties
+    public string Title { get; private set; }
+    public string Author { get; private set; }
+    public int Id { get; private set; }
+    public int Year { get; private set; }
+    public int Pages { get; private set; }
+    public int UserId { get; private set; } // 0 if not checked out, otherwise user id of borrower
 
 	// Constructor
 	// Without id (for adding new books)
 	public Book(string title, string author, int year, int pages)
 	{
-        _title = title;
-        _author = author;
-        _year = year;
-        _pages = pages;
+        Title = title;
+        Author = author;
+        Year = year;
+        Pages = pages;
     }
 
 	// With id (for getting books from the database)
 	public Book(int id, string title, string author, int year, int pages, int userId)
 	{
-        _id = id;
-        _title = title;
-        _author = author;
-        _year = year;
-        _pages = pages;
-        _userId = userId;
+        Id = id;
+        Title = title;
+        Author = author;
+        Year = year;
+        Pages = pages;
+        UserId = userId;
     }
 
 	// Public methods
-	public string getTitle()
-	{
-        return _title;
-    }
-
-	public string getAuthor()
-	{
-		   return _author;
-	}
-
-	public int getYear()
-	{
-        return _year;
-    }
-
-	public int getPages()
-	{
-		return _pages;
-	}
-
-	public int getId()
-	{
-        return _id;
-    }
-
-	public int getBorrowerId()
-	{
-        return _userId;
-    }
-
 	public string getDetails()
 	{
-		return "Book " + _id + ": " + _title + " by " + _author + " (Released in " + _year + " with " + _pages + " page" + (_pages == 1 ? "" : "s") + ")";
+		return "Book " + Id + ": " + Title + " by " + Author + " (Released in " + Year + " with " + Pages + " page" + (Pages == 1 ? "" : "s") + ")";
 	}
 }

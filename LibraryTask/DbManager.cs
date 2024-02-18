@@ -112,10 +112,10 @@ public class DbManager
 	{
 		string insertBook = "INSERT INTO books (title, author, year, pages, checkedOut) VALUES (@title, @author, @year, @pages, @checkedOut)";
 		SqliteCommand insertBookCommand = new SqliteCommand(insertBook, _connection);
-		insertBookCommand.Parameters.AddWithValue("@title", book.getTitle());
-		insertBookCommand.Parameters.AddWithValue("@author", book.getAuthor());
-		insertBookCommand.Parameters.AddWithValue("@year", book.getYear());
-		insertBookCommand.Parameters.AddWithValue("@pages", book.getPages());
+		insertBookCommand.Parameters.AddWithValue("@title", book.Title);
+		insertBookCommand.Parameters.AddWithValue("@author", book.Author);
+		insertBookCommand.Parameters.AddWithValue("@year", book.Year);
+		insertBookCommand.Parameters.AddWithValue("@pages", book.Pages);
 		insertBookCommand.Parameters.AddWithValue("@checkedOut", 0); // Not checked out, anything other than 0 is user id of borrower
 		insertBookCommand.ExecuteNonQuery();
 		Console.WriteLine("Book added successfully!");
