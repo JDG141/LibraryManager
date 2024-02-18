@@ -130,14 +130,14 @@ public class DbManager
 		List<Book> availableBooks = new List<Book>();
 		while (books.Read())
 		{
-			availableBooks.Add(new Book(
-				books.GetInt32(0),
-				books.GetString(1),
-				books.GetString(2),
-				books.GetInt32(3),
-				books.GetInt32(4),
-				books.GetInt32(5)
-			));
+			int id = books.GetInt32(0);
+            string title = books.GetString(1);
+            string author = books.GetString(2);
+            int year = books.GetInt32(3);
+            int pages = books.GetInt32(4);
+            int userId = books.GetInt32(5);
+
+            availableBooks.Add(new Book(id, title, author, year, pages, userId));
 		}
 
 		return availableBooks;
